@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0c">
+  <meta name="description" content="Минималистичный список задач.">
+  <title>todo — список задач</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="particles" aria-hidden="true">
+    <i class="particle" style="left:12%;top:27%;--duration:11s;--delay:-4s;--drift:19px;--shine:.48"></i>
+    <i class="particle" style="left:22%;top:72%;--duration:13s;--delay:-8s;--drift:-22px;--shine:.36"></i>
+    <i class="particle" style="left:31%;top:19%;--duration:10s;--delay:-2s;--drift:14px;--shine:.3"></i>
+    <i class="particle" style="left:68%;top:24%;--duration:12s;--delay:-6s;--drift:-18px;--shine:.42"></i>
+    <i class="particle" style="left:82%;top:39%;--duration:9s;--delay:-1s;--drift:20px;--shine:.5"></i>
+    <i class="particle" style="left:75%;top:78%;--duration:14s;--delay:-9s;--drift:-17px;--shine:.38"></i>
+    <i class="particle" style="left:8%;top:57%;--duration:12s;--delay:-7s;--drift:16px;--shine:.3"></i>
+    <i class="particle" style="left:91%;top:64%;--duration:10s;--delay:-3s;--drift:-13px;--shine:.45"></i>
+  </div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="todo">
+      <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span>todo</span>
+    </a>
+  </header>
+
+  <main class="stage">
+    <div class="wires" aria-hidden="true">
+      <span class="wire wire-left-top"></span><span class="wire wire-left-bottom"></span>
+      <span class="wire wire-right-top"></span><span class="wire wire-right-bottom"></span>
+      <span class="wire-node node-left"></span><span class="wire-node node-right"></span>
+    </div>
+
+    <section class="todo-card" aria-label="Список задач">
+      <div class="card-edge" aria-hidden="true"></div>
+      <form class="add-form" id="task-form">
+        <label class="visually-hidden" for="task-input">Новая задача</label>
+        <span class="input-plus" aria-hidden="true">+</span>
+        <input id="task-input" name="task" type="text" placeholder="Добавить задачу" maxlength="160" autocomplete="off" required>
+        <button class="add-button" type="submit" aria-label="Добавить задачу"><span>Добавить</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+      </form>
+
+      <div class="list-toolbar">
+        <div class="list-heading"><h1>Задачи</h1><span class="task-count" id="task-count">0</span></div>
+        <nav class="filters" aria-label="Фильтр задач">
+          <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">Все</button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Активные</button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Готово</button>
+        </nav>
+      </div>
+
+      <ul class="task-list" id="task-list" aria-live="polite"></ul>
+      <div class="empty-state" id="empty-state"><span class="empty-orbit" aria-hidden="true"><i></i></span><span>Список пуст</span></div>
+      <footer class="card-footer"><span class="footer-indicator" aria-hidden="true"></span><span id="remaining-text">Нет активных задач</span><button class="clear-button" id="clear-completed" type="button" hidden>Очистить выполненные</button></footer>
+    </section>
+  </main>
+</body>
+</html>
